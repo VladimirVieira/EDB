@@ -8,16 +8,16 @@ retorna o indice do vetor caso X seja encontrado e -1 caso contrário.
  * */
 
 public class Exercicio1 {
-	public static int pesquisa_recursiva(ArrayList<Integer>vetor, int X, int tam) {
-		if(tam == -1) {
+	public static int pesquisa_recursiva(ArrayList<Integer>vetor, int X, int tam, pos) {
+		if(tam == pos) {
 			return -1;
 		}else {
-			if(X==vetor.get(tam)) {
+			if(X==vetor.get(pos)) {
 				return tam;
 			}
 			
 			
-			return pesquisa_recursiva(vetor, X, tam-1);
+			return pesquisa_recursiva(vetor, X, tam, pos+1);
 		}
 		
 	}
@@ -38,7 +38,7 @@ public class Exercicio1 {
 		Collections.shuffle(vetor);
 		System.out.println(vetor);
 		
-		System.out.println(pesquisa_recursiva(vetor, 5, vetor.size()-1));
+		System.out.println(pesquisa_recursiva(vetor, 5, vetor.size()-1), 0);
 		
 		
 		tam.close();
